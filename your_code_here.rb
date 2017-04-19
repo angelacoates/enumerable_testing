@@ -16,6 +16,48 @@ class ReimplementEnumerable
     return result
   end
 
+  def all?
+    @collection.each do |element|
+      pizza_party =yield(element)
+      if !pizza_party
+        return false
+      end
+    end
+
+    return true
+  end
+
+  def count
+    count = 0
+    @collection.each do |element|
+      if yield(element)
+        count += 1
+      end
+    end
+    count
+  end
+
+  def find
+    @collection.each do |element|
+      if yield(element)
+        return element
+      end
+    end
+    return nil
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
   # The rest of the code for all the enumerables
   # you must write go here
 end

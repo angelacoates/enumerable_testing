@@ -1,5 +1,6 @@
 require 'minitest/spec'
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'lib/de_enumerable'
 require_relative 'lib/book'
 
@@ -25,28 +26,24 @@ describe "Enumerable" do
   end
 
   it "implements all? correctly" do
-    skip
     results = @reimplements_enumerable.all? { |book| book.year > 1800 }
 
     assert_equal true, results
   end
 
   it "implements count correctly" do
-    skip
     results = @reimplements_enumerable.count { |book| book.page_count > 300 }
 
     assert_equal 3, results
   end
 
   it "implements find correctly when there is a match" do
-    skip
     results = @reimplements_enumerable.find { |book| book.year > 1970 }
 
     assert_equal @h2g2, results
   end
 
   it "implements find correctly when there is not a match" do
-    skip
     results = @reimplements_enumerable.find { |book| book.year < 1492 }
 
     assert_nil results
