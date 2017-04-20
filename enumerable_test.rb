@@ -50,7 +50,6 @@ describe "Enumerable" do
   end
 
   it "implements each_with_index correctly" do
-    skip
     object_results = []
     index_results = []
 
@@ -83,21 +82,21 @@ describe "Enumerable" do
   end
 
   it "implements find index correctly when there is no match" do
-    skip
+
     results = @reimplements_enumerable.find_index { |book| book.year == 2017 }
 
     assert_nil @reimplements_enumerable.find { |book| book.year == 2017 }
   end
 
   it "implements include? correctly when there is a match" do
-    skip
+    
     results = @reimplements_enumerable.include?(@war_and_peace)
 
     assert_equal true, results
   end
 
   it "implements include? correctly when there is no match" do
-    skip
+
     not_in_list = Book.new("A Brief History of Time", 1988, "Stephen Hawking", 256)
 
     results = @reimplements_enumerable.include?(@not_in_list)

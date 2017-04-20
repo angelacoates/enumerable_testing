@@ -46,6 +46,34 @@ class ReimplementEnumerable
     return nil
   end
 
+  def each_with_index
+    index = 0
+    @collection.each do |element|
+      yield(element, index)
+      index += 1
+    end
+  end
+
+  def find_index
+    index = 0
+    result = nil
+    @collection.each do |element|
+      yield(element)
+      index += 1
+    end
+  end
+
+  def include?(argument)
+    @collection.each do |element|
+      if element == argument
+        return true
+      end
+    end
+    return false
+  end
+
+
+
 
 
 
